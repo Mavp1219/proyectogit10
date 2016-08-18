@@ -34,11 +34,11 @@ public class principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtvalor1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtresultado1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtresultado2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtresultado3 = new javax.swing.JTextField();
         cmdcalcular = new javax.swing.JButton();
         cmdborrar = new javax.swing.JButton();
 
@@ -73,33 +73,43 @@ public class principal extends javax.swing.JFrame {
         jLabel3.setText("% DE GINECOLOGIA: ");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 124, 150, 30));
 
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtresultado1.setEditable(false);
+        txtresultado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtresultado1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 180, 30));
+        jPanel3.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 180, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("% DE TRAUMATOLOGIA: ");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 30));
 
-        jTextField2.setEditable(false);
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 180, 30));
+        txtresultado2.setEditable(false);
+        jPanel3.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 180, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("% DE PEDIATRIA: ");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 140, 30));
 
-        jTextField3.setEditable(false);
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 180, 30));
+        txtresultado3.setEditable(false);
+        jPanel3.add(txtresultado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 180, 30));
 
         cmdcalcular.setText(" CALCULAR");
+        cmdcalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdcalcularActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 90, 30));
 
         cmdborrar.setText("BORRAR");
-        jPanel3.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 80, 30));
+        cmdborrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdborrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 80, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 360));
 
@@ -110,9 +120,38 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtvalor1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtresultado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultado1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtresultado1ActionPerformed
+
+    private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
+       double v1, pg,pt,pd;
+       
+       v1 = Double.parseDouble(txtvalor1.getText());
+       
+       pg = (v1 * 40) / 100;
+       
+       pt = (v1 * 30) / 100;
+       
+       pd = (v1 * 30) / 100;
+       
+       txtresultado1.setText(String.valueOf(pg));
+       txtresultado2.setText(String.valueOf(pt));
+       txtresultado3.setText(String.valueOf(pd));
+       
+       
+       
+    }//GEN-LAST:event_cmdcalcularActionPerformed
+
+    private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
+       txtvalor1.setText("");
+       txtresultado1.setText("");
+       txtresultado2.setText("");
+       txtresultado3.setText("");
+       
+       txtvalor1.requestFocusInWindow();
+       
+    }//GEN-LAST:event_cmdborrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,9 +199,9 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtresultado1;
+    private javax.swing.JTextField txtresultado2;
+    private javax.swing.JTextField txtresultado3;
     private javax.swing.JTextField txtvalor1;
     // End of variables declaration//GEN-END:variables
 }
