@@ -101,7 +101,7 @@ public class principal extends javax.swing.JFrame {
                 cmdcalcularActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 90, 30));
+        jPanel3.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 100, 30));
 
         cmdborrar.setText("BORRAR");
         cmdborrar.addActionListener(new java.awt.event.ActionListener() {
