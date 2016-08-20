@@ -5,6 +5,8 @@
  */
 package repositorio11;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -67,6 +69,11 @@ public class principal extends javax.swing.JFrame {
                 txtvalor1ActionPerformed(evt);
             }
         });
+        txtvalor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor1KeyTyped(evt);
+            }
+        });
         jPanel3.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 180, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -125,33 +132,53 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtresultado1ActionPerformed
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
-       double v1, pg,pt,pd;
-       
-       v1 = Double.parseDouble(txtvalor1.getText());
-       
-       pg = (v1 * 40) / 100;
-       
-       pt = (v1 * 30) / 100;
-       
-       pd = (v1 * 30) / 100;
-       
-       txtresultado1.setText(String.valueOf(pg));
-       txtresultado2.setText(String.valueOf(pt));
-       txtresultado3.setText(String.valueOf(pd));
-       
-       
-       
+        double v1, pg, pt, pd;
+
+        if (txtvalor1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor escriba su monto anual", "Error", JOptionPane.ERROR_MESSAGE);
+            txtvalor1.requestFocusInWindow();
+            txtvalor1.selectAll();
+        } else {
+
+            v1 = Double.parseDouble(txtvalor1.getText());
+
+            if (v1 == 0) {
+                JOptionPane.showMessageDialog(this, "Por favor escriba un monto diferente de 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor1.requestFocusInWindow();
+                txtvalor1.selectAll();
+            } else {
+
+                pg = (v1 * 40) / 100;
+
+                pt = (v1 * 30) / 100;
+
+                pd = (v1 * 30) / 100;
+
+                txtresultado1.setText(String.valueOf(pg));
+                txtresultado2.setText(String.valueOf(pt));
+                txtresultado3.setText(String.valueOf(pd));
+            }
+        }
+
     }//GEN-LAST:event_cmdcalcularActionPerformed
 
     private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
-       txtvalor1.setText("");
-       txtresultado1.setText("");
-       txtresultado2.setText("");
-       txtresultado3.setText("");
-       
-       txtvalor1.requestFocusInWindow();
-       
+        txtvalor1.setText("");
+        txtresultado1.setText("");
+        txtresultado2.setText("");
+        txtresultado3.setText("");
+
+        txtvalor1.requestFocusInWindow();
+
     }//GEN-LAST:event_cmdborrarActionPerformed
+
+    private void txtvalor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor1KeyTyped
+        char c=evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalor1KeyTyped
 
     /**
      * @param args the command line arguments
