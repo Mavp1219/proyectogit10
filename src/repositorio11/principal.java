@@ -143,10 +143,11 @@ public class principal extends javax.swing.JFrame {
             v1 = Double.parseDouble(txtvalor1.getText());
 
             if (v1 == 0) {
-                JOptionPane.showMessageDialog(this, "Por favor escriba un monto diferente de 0", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "El porcentaje de todas sera 0", "Error", JOptionPane.ERROR_MESSAGE);
                 txtvalor1.requestFocusInWindow();
                 txtvalor1.selectAll();
-            } else {
+            } 
+            {
 
                 pg = (v1 * 40) / 100;
 
